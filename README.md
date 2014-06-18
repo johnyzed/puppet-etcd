@@ -1,4 +1,5 @@
 This puppet module will install and configure etcd on stand-alone or a cluster environment.
+It will dowload and install the last stable version of etcd disponible on the [github etcd repo of coreos](https://github.com/coreos/etcd). 
 
 ##Require
 In order to run, this module needs the following puppet modules:
