@@ -27,14 +27,9 @@ class etcd(
 	}
 
     exec { "export_path_profile":
-    	command => "echo 'export PATH=\$PATH:/usr/local/go/bin' >> ${profiledir}/.profile ; echo 'export GOROOT=/usr/local/go'",
+    	command => "echo 'export PATH=\$PATH:/usr/local/go/bin' >> ${profiledir}/.profile ; echo 'export GOROOT=/usr/local/go'>> ${profiledir}/.profile ",
     	path   => [ '/usr/bin', '/bin' ],
-    	#unless => "grep '/usr/local/go/bin' ${profiledir}/.profile"
     }
-
-    #package { "golang-go":
-    #	ensure => installed,
-    #}
 
 	exec { "etcd_build":
 		command => "${install_path}/etcd/build",
@@ -51,6 +46,7 @@ class etcd(
 		},
 		cwd     => "${install_path}/etcd",
 		path    => "/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/go/bin:/usr/local/go/bin",
+		unless  => "/bin/ps -ef |grep -v grep|grep etcd",
 		require => Exec['etcd_build'],
 	}
 
