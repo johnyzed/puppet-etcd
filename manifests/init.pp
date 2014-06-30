@@ -52,8 +52,8 @@ class etcd(
 
 	exec { "config_etcd":
 		command => $need_peers ?{
-			false => "nohup ${install_path}/etcd/bin/etcd -peer-addr ${hostname}:${peer_port} -addr ${hostname}:${regular_port} -data-dir machines/${machine_name} -name ${machine_name} -bind-addr 0.0.0.0 &",
-			true  => "nohup ${install_path}/etcd/bin/etcd -peer-addr ${hostname}:${peer_port} -addr ${hostname}:${regular_port} -peers ${peers} -data-dir machines/${machine_name} -name ${machine_name} -bind-addr 0.0.0.0 &",
+			false => "nohup ${install_path}/etcd-${etcd_version}/bin/etcd -peer-addr ${hostname}:${peer_port} -addr ${hostname}:${regular_port} -data-dir machines/${machine_name} -name ${machine_name} -bind-addr 0.0.0.0 &",
+			true  => "nohup ${install_path}/etcd-${etcd_version}/bin/etcd -peer-addr ${hostname}:${peer_port} -addr ${hostname}:${regular_port} -peers ${peers} -data-dir machines/${machine_name} -name ${machine_name} -bind-addr 0.0.0.0 &",
 		},
 		cwd     => "${install_path}/etcd-${etcd_version}",
 		path    => "/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/go/bin:/usr/local/go/bin",
