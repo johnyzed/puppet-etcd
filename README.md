@@ -22,6 +22,7 @@ In order to run, this module needs the following puppet modules:
         stage => last,
         machine_name  => "machine1",
         peer_port => "7001",
+	etcd_version => "0.3.0",
         regular_port => "4001",
     }
 ```
@@ -41,6 +42,7 @@ In order to run, this module needs the following puppet modules:
         machine_name  => "machine1",
         peer_port => "7001",
         regular_port => "4001",
+	etcd_version => "0.3.0",
         peers => [ "server2:7002,server3:7003"],
     }
 ```
