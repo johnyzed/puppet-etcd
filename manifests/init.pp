@@ -41,11 +41,6 @@ class etcd(
 		creates => $etcd_dir
 	}
 
-    exec { "export_path_profile":
-    	command => "echo 'export PATH=\$PATH:/usr/local/go/bin' >> ${profiledir}/.profile ; echo 'export GOROOT=/usr/local/go'>> ${profiledir}/.profile ",
-    	path   => [ '/usr/bin', '/bin' ],
-    }
-
 	exec { "config_etcd":
 		command => $need_peers ?{
 			false => "nohup ${etcd_dir}/etcd -peer-addr ${hostname}:${peer_port} -addr ${hostname}:${regular_port} -data-dir machines/${machine_name} -name ${machine_name} -bind-addr 0.0.0.0 &",
