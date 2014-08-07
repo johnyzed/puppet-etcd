@@ -19,8 +19,6 @@ class etcd(
 	$code_repo_url ="${github_url}/releases/download/v${etcd_version}/etcd-v${etcd_version}-${kernel}-${architecture}.tar.gz"
 	$etcd_dir = "${install_path}/etcd-v${etcd_version}-${low_kernel}-${architecture}"
 
-	notice($low_arch)
-
 	file { $install_path:
 		ensure => "directory",
 	}
