@@ -10,7 +10,6 @@ In order to run, this module needs the following puppet module:
 
 ```
     class { 'etcd':
-        stage => last,
         machine_name  => "machine1",
         peer_port => "7001",
     	etcd_version => "0.3.0",
@@ -23,7 +22,6 @@ In order to run, this module needs the following puppet module:
 ```
 
     class { 'etcd':
-        stage => last,
         machine_name  => "machine1",
         peer_port => "7001",
         regular_port => "4001",
