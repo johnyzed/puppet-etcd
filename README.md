@@ -18,6 +18,7 @@ In order to run, this module needs the following puppet module:
 ```
 
 ###Cluster
+If you decide to work on cluster you need to take the order of the installation in account.Let's say you want to create a cluster of 3 servers as in the example below.The installation order will be server1, then server2, then server3.In order to work you will have to install server1 as stand alone (exactly like ion the example above) and then server2 and server3 like below.
 
 ```
 
